@@ -1,0 +1,192 @@
+/* Yleiset tyylit */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F8EDEB;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ylätunnisteen tyylit */
+.header {
+    background-color: #E8B4B8;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.site-title {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.site-title-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.nav button {
+    background-color: #E8B4B8;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    color: white;
+}
+
+.nav button:hover {
+    background-color: #d49496;
+}
+
+/* Sisällön tyylit */
+.content {
+    text-align: center;
+    margin: 50px;
+    padding: 20px;
+    flex: 1;
+}
+
+.flex-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.content h2 {
+    color: #D48B8B;
+    padding-top: 30px;
+}
+
+.content p {
+    color: #7D7D7D;
+    padding: 20px;
+}
+
+/* Painikkeiden tyylit */
+.button-container {
+    margin-top: 20px;
+}
+
+.button-container button,
+.button-container a.button {
+    background-color: #D48B8B;
+    border: none;
+    padding: 20px 40px;
+    font-size: 20px;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button-container button:hover,
+.button-container a.button:hover {
+    background-color: #c37a7a;
+}
+
+/* Aktiviteettien tyylit */
+.activities {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.activities h2 {
+    color: #D48B8B;
+}
+
+.activities-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.activity-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.activity-item {
+    background-color: #e4a1a1;
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    color: white;
+    height: 50%;
+}
+
+.show-all-button {
+    margin-top: 20px;
+    background-color: #D48B8B;
+    border: none;
+    padding: 20px 40px;
+    font-size: 20px;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.show-all-button:hover {
+    background-color: #c37a7a;
+}
+
+/* Yhteystietojen tyylit */
+.contact {
+    background-color: #EEBBBA;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Satunnaisen aktiviteetin tyylit */
+#random-activity {
+    margin-top: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6e4f4b;
+    text-align: center;
+}
+
+/* Yläosan taustakuva */
+.top-section {
+    background-image: url('kuva1.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 100px;
+    background-color: #F8EDEB;
+    height: 70vh;
+}

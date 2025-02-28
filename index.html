@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitä tekisin nyt?</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Ylätunniste -->
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="site-title-link">
+                <div class="site-title">Mitä tekisin nyt?</div>
+            </a>
+            <nav class="nav">
+                <a href="aktiviteetit.html">
+                    <button>Aktiviteetit</button>
+                </a>
+                <a href="kyselyt.html">
+                    <button>Kyselyt</button>
+                </a>
+                <a href="yhteystiedot.html">
+                    <button>Yhteystiedot</button>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Yläosan sisältö -->
+        <div class="top-section">
+            <div class="content">
+                <h2>Hauskoja ja hyödyllisiä ideoita tylsyyden torjumiseen</h2>
+                <p>Paina tästä saadaksesi jotain tekemistä!</p>
+
+                <div class="button-container">
+                    <button onclick="annaSatunnainenAktiviteetti()">FiilisFundi</button>
+                </div>
+
+                <div id="random-activity"></div> <!-- Tänne tulostetaan aktiviteetti -->
+            </div>
+        </div>
+
+        <!-- Suositut aktiviteetit -->
+        <section class="activities" id="activities">
+            <div class="activities">
+                <h2>Suositut aktiviteetit</h2>
+                <div class="activity-grid">
+                    <div class="activity-item highlight">Pelaa lautapeliä</div>
+                    <div class="activity-item">Kirjoita ylös 5 asiaa, joista olet kiitollinen tänään</div>
+                    <div class="activity-item">Kuuntele podcast tai äänikirja</div>
+                    <div class="activity-item">Tee 5 minuutin kotitreeni YouTube-videon avulla</div>
+                    <div class="activity-item">Opettele uusi tanssiliike</div>
+                    <div class="activity-item highlight">Kirjoita lyhyt tarina</div>
+                </div>
+                <div class="button-container">
+                    <a href="aktiviteetit.html">
+                        <button>Näytä kaikki aktiviteetit</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yhteystiedot -->
+        <section class="contact" id="contact">
+            <h2>Ota yhteyttä</h2>
+            <p>📞 040 123 4567</p>
+            <p>📧 info@mitätekisinnyt.fi</p>
+            <p>📍 Salomonkatu 5, 00100 Helsinki</p>
+        </section>
+    </div>
+
+    <!-- JavaScript-funktiot -->
+    <script>
+        function annaSatunnainenAktiviteetti() {
+            var aktiviteetit = [
+                "Lähde kävelylle ja kuuntele podcastia 🎧",
+                "Kokeile uutta reseptiä 🍰",
+                "Katso elokuva, jota et ole ennen nähnyt 🎬",
+                "Piirrä tai maalaa jotain 🎨",
+                "Soita ystävälle ja juttele kuulumiset ☎️",
+                "Lähde kirjastoon tai kahvilaan lukemaan kirjaa 📖",
+                "Kokeile meditaatiota tai rentoutusharjoitusta 🧘",
+                "Kirjoita päiväkirjaa tai suunnittele viikkoasi ✍️",
+                "Tee pieni kotitreeni 🏋️",
+                "Tutustu uuteen musiikkiin tai soittolistaan 🎶"
+            ];
+
+            var satunnainen = aktiviteetit[Math.floor(Math.random() * aktiviteetit.length)];
+            document.getElementById("random-activity").innerText = satunnainen;
+        }
+    </script>
+
+</body>
+</html>

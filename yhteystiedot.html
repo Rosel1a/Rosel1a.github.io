@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yhteystiedot</title>
+    <link rel="stylesheet" href="yhteystiedot.css">
+</head>
+<body>
+    <!-- Ylätunniste -->
+    <header class="header">
+        <a href="index.html" class="site-title-link">
+            <div class="site-title">Mitä tekisin nyt?</div>
+        </a>
+        <nav class="nav">
+            <a href="aktiviteetit.html"><button>Aktiviteetit</button></a>
+            <a href="kyselyt.html"><button>Kyselyt</button></a>
+            <a href="yhteystiedot.html"><button>Yhteystiedot</button></a>
+        </nav>
+    </header>
+
+    <!-- Pääsisältö -->
+    <div class="container">
+        <section class="contact">
+            <h1>Ota yhteyttä</h1>
+            <p>📞 040 123 4567</p>
+            <p>📧 info@mitätekisinnyt.fi</p>
+            <p>📍 Salomonkatu 5, 00100 Helsinki</p>
+
+            <div class="contact-form">
+                <h2>Lähetä meille viesti</h2>
+                <form id="contactForm">
+                    <input type="text" name="name" placeholder="Nimi" required>
+                    <input type="email" name="email" placeholder="Sähköposti" required>
+                    <textarea name="message" rows="5" placeholder="Kirjoita viestisi tähän..." required></textarea>
+                    <button type="submit">Lähetä</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html">
+                <button>Takaisin etusivulle</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Estää oikean lähetyksen
+            alert("Viesti lähetetty!"); // Näyttää pop-up-viestin
+            this.reset(); // Tyhjentää lomakkeen kentät
+        });
+    </script>
+</body>
+</html>

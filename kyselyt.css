@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f2eb;
+    color: #CB8786;
+    text-align: center;
+    padding: 40px;
+    margin: 0; /* Varmistaa, ettei kehon ympärillä ole marginaalia */
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; /* Keskittää tekstin */
+    padding: 50px;
+}
+
+/* Säilön asettelu */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 100px; /* Lisää yläreunaan tilaa kiinteää ylätunnistetta varten */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Luo responsiivinen ruudukko */
+    gap: 20px; /* Lisää tilaa ruudukon kohteiden väliin */
+}
+
+/* Kortin tyylit */
+.card {
+    background-color: rgba(255, 235, 230, 0.6);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Varmistaa tilan elementtien välillä */
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Painikkeiden tyylit */
+.button, .button2 {
+    background-color: #d1928f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    align-self: center; /* Keskittää painikkeen vaakasuunnassa */
+}
+
+.button:hover, .button2:hover {
+    background-color: #b77c79;
+}
+
+/* Responsiiviset tyylit pienille näytöille */
+@media (max-width: 700px) {
+    .container {
+        grid-template-columns: 1fr; /* Pinoaa kohteet pystysuunnassa pienillä näytöillä */
+    }
+}
+
+/* Ylätunnisteen tyylit */
+.header {
+    background-color: #E8B4B8;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    width: 100%; /* Varmistaa, että ylätunniste kattaa koko leveyden */
+    box-sizing: border-box; /* Sisällyttää paddingin leveyden laskentaan */
+    position: fixed; /* Kiinnittää ylätunnisteen yläreunaan */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Varmistaa, että ylätunniste on muiden sisältöjen päällä */
+}
+
+.site-title {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.site-title-link {
+    text-decoration: none; /* Poistaa alleviivauksen */
+    color: inherit; /* Perii tekstivärin vanhemmalta */
+    display: inline-block; /* Pitää sen block-tyyppisenä tyylittelyä varten */
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.nav button {
+    background-color: #E8B4B8;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    color: white;
+}
+
+.nav button:hover {
+    background-color: #d49496;
+}

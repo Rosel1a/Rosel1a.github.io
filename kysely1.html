@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyselyt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f2eb;
+            color: #CB8786;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding-top: 100px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding-top: 100px;
+        }
+
+        .card {
+            background-color: rgba(255, 235, 230, 0.6);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, select, textarea {
+            padding: 8px;
+            border: 1px solid #d1928f;
+            border-radius: 8px;
+            font-size: 14px;
+            width: 100%;
+            background-color: #f8f2eb;
+            color: #6e4f4b;
+        }
+
+        .button {
+            background-color: #d1928f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #b77c79;
+        }
+
+        #recommendation {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #6e4f4b;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .header {
+            background-color: #E8B4B8;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .site-title {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .site-title-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        .nav {
+            display: flex;
+            gap: 10px;
+            margin-right: 20px;
+        }
+
+        .nav button {
+            background-color: #E8B4B8;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .nav button:hover {
+            background-color: #d49496;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ylätunniste -->
+    <header class="header">
+        <a href="index.html" class="site-title-link">
+            <div class="site-title">Mitä tekisin nyt?</div>
+        </a>
+        <nav class="nav">
+            <a href="aktiviteetit.html">
+                <button>Aktiviteetit</button>
+            </a>
+            <a href="kyselyt.html">
+                <button>Kyselyt</button>
+            </a>
+            <a href="yhteystiedot.html">
+                <button>Yhteystiedot</button>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Pääotsikko -->
+    <h1>Kyselyt</h1>
+
+    <!-- Kyselylomake -->
+    <div class="container">
+        <div class="card">
+            <div class="card-title">Löydä täydellinen aktiviteetti</div>
+            <div class="card-text">
+                Täytä kysely, joka auttaa sinua valitsemaan tekemistä mieluusi perusteella.
+            </div>
+            <form id="activity-form">
+                <label for="mieliala">Mikä on fiiliksesi?</label>
+                <select id="mieliala" name="mieliala">
+                    <option value="Rentoutunut">Rentoutunut</option>
+                    <option value="Energiaa täynnä">Energiaa täynnä</option>
+                    <option value="Seikkailunhaluinen">Seikkailunhaluinen</option>
+                </select>
+
+                <label for="aktiviteetti">Minkä tyyppinen aktiviteetti kiinnostaa?</label>
+                <select id="aktiviteetti" name="aktiviteetti">
+                    <option value="Luova">Luova</option>
+                    <option value="Fyysinen">Fyysinen</option>
+                    <option value="Rauhallinen">Rauhallinen</option>
+                    <option value="Sosiaalinen">Sosiaalinen</option>
+                </select>
+
+                <button type="button" class="button" onclick="suositteleAktiviteetti()">Näytä ehdotus</button>
+            </form>
+
+            <div id="recommendation"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript-funktio -->
+    <script>
+        function suositteleAktiviteetti() {
+            var mieliala = document.getElementById("mieliala").value;
+            var aktiviteetti = document.getElementById("aktiviteetti").value;
+            var recommendationText = "";
+
+            // Suosituslogiikka
+            if (mieliala === "Rentoutunut" && aktiviteetti === "Luova") {
+                recommendationText = "Suosittelemme maalausta tai kirjoittamista!";
+            } else if (mieliala === "Rentoutunut" && aktiviteetti === "Fyysinen") {
+                recommendationText = "Suosittelemme rauhallista joogaa tai kävelyä luonnossa.";
+            } else if (mieliala === "Energiaa täynnä" && aktiviteetti === "Fyysinen") {
+                recommendationText = "Kokeile tanssia, kuntosalitreeniä tai juoksua!";
+            } else if (mieliala === "Seikkailunhaluinen" && aktiviteetti === "Sosiaalinen") {
+                recommendationText = "Miten olisi pakohuonepeli tai improvisaatioteatteri?";
+            } else if (mieliala === "Seikkailunhaluinen" && aktiviteetti === "Luova") {
+                recommendationText = "Kokeile uuden instrumentin soittamista tai katutaidetta!";
+            } else if (mieliala === "Energiaa täynnä" && aktiviteetti === "Sosiaalinen") {
+                recommendationText = "Järjestä peli-ilta ystävien kanssa tai lähde tanssikurssille!";
+            } else {
+                recommendationText = "Kokeile jotain uutta – esimerkiksi meditointia tai lautapeli-iltaa!";
+            }
+
+            document.getElementById("recommendation").innerText = recommendationText;
+        }
+    </script>
+
+</body>
+</html>

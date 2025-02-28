@@ -1,0 +1,110 @@
+/* Yleiset tyylit */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f2eb;
+    color: #CB8786;
+    text-align: center;
+    padding: 40px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Säilön asettelu */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 100px;
+    text-align: left;
+}
+
+/* Kategorian otsikko */
+.category {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Listan tyylit */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Ylätunnisteen tyylit */
+.header {
+    background-color: #E8B4B8;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.site-title {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.nav button {
+    background-color: #E8B4B8;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    color: white;
+}
+
+.nav button:hover {
+    background-color: #d49496;
+}
+
+.site-title-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+/* Kuvan säilön tyylit */
+.image-container {
+    grid-column: span 1;
+    grid-row: span 6;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.side-image {
+    max-width: 100%;
+    height: auto;
+}
