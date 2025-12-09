@@ -1,2 +1,2 @@
-Tämä sisältää WEB- ja mobiililkäyttöliittymät kurssin nettisivuston
+Tämä sisältää WEB- ja mobiililkäyttöliittymät kurssilla tehdyn nettisivuston
 https://rosel1a.github.io/
