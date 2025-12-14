@@ -1,0 +1,403 @@
+/* CSS Variables */
+:root{
+  --max-w:1100px;
+  --accent:#ff006e;
+  --accent-dark:#c2185b;
+  --bg:#0a0e27;
+  --card:#1a1f3a;
+  --card-hover:#252d48;
+  --text-primary:#ffffff;
+  --text-secondary:#a0aec0;
+  --border:#2d3748;
+  --radius:12px;
+  --gap:18px;
+  --shadow-sm: 0 2px 8px rgba(255,0,110,0.1);
+  --shadow: 0 8px 30px rgba(255,0,110,0.15);
+  --shadow-lg: 0 12px 48px rgba(255,0,110,0.2);
+  --navbar-bg: var(--card);
+  --border-radius: var(--radius);
+  --shadow-s: var(--shadow-sm);
+  --shadow-m: var(--shadow);
+  --transition-fast: 0.2s ease;
+  --text-color: var(--text-primary);
+}
+
+/* Global Styles */
+*{box-sizing:border-box}
+html,body{
+  height:100%;margin:0;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background:var(--bg);color:var(--text-primary);-webkit-font-smoothing:antialiased;line-height:1.6;
+}
+
+/* Links */
+a{color:var(--accent);text-decoration:none;transition:color 0.2s ease}
+a:hover{color:#ff3385}
+
+/* Container */
+.container{max-width:var(--max-w);margin:0 auto;padding:40px 20px}
+
+/* Header */
+.site-header{
+  position:relative;overflow:hidden;padding:60px 0;
+}
+
+/* Background gradient layer */
+.header-bg{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(135deg, rgba(255,0,110,0.1) 0%, rgba(194,24,91,0.05) 50%, transparent 100%);
+  z-index:0;
+}
+
+/* Floating blobs and dots */
+.floating-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,0,110,0.15) 0%, transparent 70%);
+}
+
+.blob1 {
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.blob2 {
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.floating-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255,0,110,0.4);
+  border-radius: 50%;
+}
+
+.dot1 {
+  top: 20%;
+  left: 10%;
+  animation: float 5s ease-in-out infinite;
+}
+
+.dot2 {
+  top: 60%;
+  right: 15%;
+  animation: float 7s ease-in-out infinite reverse;
+}
+
+.dot3 {
+  bottom: 10%;
+  left: 50%;
+  animation: float 9s ease-in-out infinite;
+}
+
+/* Float animation - moves blobs up and down smoothly */
+@keyframes float{
+  0%, 100%{transform:translateY(0px)}
+  50%{transform:translateY(30px)}
+}
+
+/* Header content flexbox layout */
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:40px;
+  position:relative;z-index:1;
+}
+
+.header-content{
+  flex:1;
+}
+
+/* Main title with gradient text and animation */
+.site-title{
+  margin:0 0 12px 0;font-size:3.5rem;font-weight:900;letter-spacing:-1px;
+  background:linear-gradient(135deg, #ff006e 0%, #ff3385 50%, #ff6bb5 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  text-shadow:0 8px 30px rgba(255,0,110,0.2);
+  animation:fadeInDown 0.8s ease-out;
+}
+
+/* Subtitle text under title */
+.header-subtitle{
+  margin:0;font-size:1.2rem;color:var(--text-secondary);font-weight:500;
+  animation:fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Fade in down animation - title slides in from top */
+@keyframes fadeInDown{
+  from{opacity:0;transform:translateY(-30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Fade in up animation - subtitle slides in from bottom */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Bounce animation for skill boxes */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(-4px); }
+  40% { transform: translateY(-14px); }
+  60% { transform: translateY(-9px); }
+}
+
+
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--navbar-bg);
+  border-radius: var(--border-radius);
+  padding: 16px 12px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  transition: box-shadow var(--transition-fast),
+              background 600ms ease;
+  z-index: 60;
+  border: 1px solid var(--border);
+  min-width: 180px;
+}
+
+.navbar:hover {
+  box-shadow: var(--shadow-m);
+}
+
+.navbar-menu {
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  position: relative;
+  display: block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  height: auto;
+  width: auto;
+}
+
+.navbar-link:hover {
+  color: var(--accent);
+  background: rgba(255,0,110,0.1);
+  border-color: var(--border);
+}
+
+/* Page Sections */
+.section{
+  background:var(--card);border-radius:var(--radius);padding:40px;margin-bottom:24px;
+  box-shadow:var(--shadow);border:1px solid var(--border);transition:all 0.3s ease;
+}
+
+/* Section hover effect - elevates and changes background */
+.section:hover{
+  box-shadow:var(--shadow-lg);background:var(--card-hover);
+}
+
+/* Section headings */
+.section h2{
+  margin:0 0 20px 0;font-size:1.8rem;font-weight:700;color:var(--text-primary);
+  position:relative;padding-bottom:16px;
+}
+
+/* Animated underline for section headings */
+.section h2::after{
+  content:'';position:absolute;bottom:0;left:0;width:60px;height:3px;
+  background:linear-gradient(90deg, #ff006e 0%, #ff3385 100%);border-radius:2px;
+}
+
+/* Section paragraphs */
+.section p{color:var(--text-secondary);line-height:1.8;margin:0 0 16px 0}
+.section p:last-child{margin-bottom:0}
+
+/* Projects */
+.projects-list{
+  list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;
+}
+
+/* Individual project item layout - image and text side by side */
+.project-item{
+  display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:start;
+  padding:0;border:none;background:transparent;border-left:none;
+  list-style:none;transition:all 0.3s ease;
+}
+
+/* Project images with rounded corners and border */
+.project-image{
+  width:100%;height:auto;border-radius:10px;box-shadow:var(--shadow);
+  object-fit:cover;aspect-ratio:16/10;transition:transform 0.3s ease;
+  border:1px solid var(--border);
+}
+
+/* Project image zoom on hover */
+.project-item:hover .project-image{transform:scale(1.02)} /* smaller zoom */
+
+/* Project content layout */
+.project-content{display:flex;flex-direction:column;gap:12px}
+.project-content strong{font-size:1.1rem;color:var(--text-primary)}
+.project-content p{margin:0;color:var(--text-secondary)}
+
+.project-link{
+  color: var(--accent);
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.project-link:hover{
+  transform: scale(1.05);
+}
+
+.view-details {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+  font-size: 0.85rem;
+}
+
+.view-details:hover {
+  background: var(--accent-dark);
+}
+
+.project-details {
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--card-hover);
+  border-radius: 5px;
+  border-left: 3px solid var(--accent);
+}
+
+/* COMBINED HEADING STYLES */
+.project-content strong,
+.skill-box h3{
+  font-size:1.1rem;color:var(--text-primary);font-weight:700;
+  margin:0 0 6px 0;
+}
+
+/* Skills */
+.skills-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));gap:16px;margin-top:20px;
+}
+
+/* Individual skill box with gradient background */
+.skill-box{
+  background:linear-gradient(135deg, rgba(255,0,110,0.06) 0%, rgba(255,0,110,0.02) 100%);
+  border:1.5px solid var(--border);border-radius:12px;padding:20px;
+  text-align:center;transition:all 0.3s ease;cursor:default;
+}
+
+/* Skill box hover effect - lifts up and highlights */
+.skill-box:hover{
+  border-color:var(--accent);background:linear-gradient(135deg, rgba(255,0,110,0.12) 0%, rgba(255,0,110,0.06) 100%);
+  transform:translateY(-4px);box-shadow:var(--shadow);
+  animation: bounce 0.6s;
+}
+
+/* Skill icon emoji styling */
+.skill-icon{
+  font-size:2rem;display:block;margin-bottom:12px;
+}
+
+/* Skill title */
+.skill-box h3{
+  margin:0 0 6px 0;font-size:1.1rem;color:var(--text-primary);font-weight:700;
+}
+
+/* Skill description */
+.skill-box p{
+  margin:0;font-size:0.85rem;color:var(--text-secondary);
+}
+
+/* Footer */
+.site-footer{
+  padding:32px 0;text-align:center;color:var(--text-secondary);font-size:0.9rem;
+  border-top:1px solid var(--border);margin-top:40px;
+}
+
+/* Accessibility */
+.visually-hidden{position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Responsive polish - reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Responsive Design - Tablet */
+@media (max-width:880px){
+  .navbar{
+    position:relative;right:auto;left:auto;top:auto;transform:none;
+    display:flex;justify-content:center;
+    padding:10px;min-width:unset;
+  }
+  .navbar-menu{
+    flex-direction:row;gap:8px;flex-wrap:wrap;
+  }
+  .navbar-link{padding:8px 12px;font-size:0.9rem}
+  
+  /* Stack header content vertically */
+  .header-inner{flex-direction:column;text-align:center}
+  
+  /* Adjust section padding */
+  .section{padding:28px}
+  
+  /* Single column form on smaller screens */
+  .contact-form{grid-template-columns:1fr}
+  
+  /* Stack project image and text vertically */
+  .project-item{grid-template-columns:1fr}
+  .project-image{aspect-ratio:16/9}
+  
+  /* Smaller skill boxes */
+  .skills-grid{grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:12px}
+  .skill-box{padding:16px}
+  .skill-icon{font-size:1.6rem}
+}
+
+/* Responsive Design - Mobile */
+@media (max-width:420px){
+  /* Reduce title size on mobile */
+  .site-title{font-size:1.4rem}
+  
+  /* Reduce section padding and margins */
+  .section{padding:20px;margin-bottom:16px}
+  .section h2{font-size:1.4rem}
+  
+  .navbar{padding:8px}
+  .navbar-link{padding:6px 10px;font-size:0.85rem}
+  
+  /* Reduce container padding */
+  .container{padding:20px 12px}
+}

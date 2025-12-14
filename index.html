@@ -1,94 +1,246 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitä tekisin nyt?</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ruusu Aavikko — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Ylätunniste -->
-    <div class="container">
-        <header class="header">
-            <a href="index.html" class="site-title-link">
-                <div class="site-title">Mitä tekisin nyt?</div>
-            </a>
-            <nav class="nav">
-                <a href="aktiviteetit.html">
-                    <button>Aktiviteetit</button>
-                </a>
-                <a href="kyselyt.html">
-                    <button>Kyselyt</button>
-                </a>
-                <a href="yhteystiedot.html">
-                    <button>Yhteystiedot</button>
-                </a>
-            </nav>
-        </header>
-
-        <!-- Yläosan sisältö -->
-        <div class="top-section">
-            <div class="content">
-                <h2>Hauskoja ja hyödyllisiä ideoita tylsyyden torjumiseen</h2>
-                <p>Paina tästä saadaksesi jotain tekemistä!</p>
-
-                <div class="button-container">
-                    <button onclick="annaSatunnainenAktiviteetti()">FiilisFundi</button>
-                </div>
-
-                <div id="random-activity"></div> <!-- Tänne tulostetaan aktiviteetti -->
-            </div>
-        </div>
-
-        <!-- Suositut aktiviteetit -->
-        <section class="activities" id="activities">
-            <div class="activities">
-                <h2>Suositut aktiviteetit</h2>
-                <div class="activity-grid">
-                    <div class="activity-item highlight">Pelaa lautapeliä</div>
-                    <div class="activity-item">Kirjoita ylös 5 asiaa, joista olet kiitollinen tänään</div>
-                    <div class="activity-item">Kuuntele podcast tai äänikirja</div>
-                    <div class="activity-item">Tee 5 minuutin kotitreeni YouTube-videon avulla</div>
-                    <div class="activity-item">Opettele uusi tanssiliike</div>
-                    <div class="activity-item highlight">Kirjoita lyhyt tarina</div>
-                </div>
-                <div class="button-container">
-                    <a href="aktiviteetit.html">
-                        <button>Näytä kaikki aktiviteetit</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Yhteystiedot -->
-        <section class="contact" id="contact">
-            <h2>Ota yhteyttä</h2>
-            <p>📞 040 123 4567</p>
-            <p>📧 info@mitätekisinnyt.fi</p>
-            <p>📍 Salomonkatu 5, 00100 Helsinki</p>
-        </section>
+  <!-- Header with animated background and navigation -->
+  <header class="site-header">
+    <!-- Animated background with floating blobs -->
+    <div class="header-bg">
+      <div class="floating-blob blob1"></div>
+      <div class="floating-blob blob2"></div>
+      <div class="floating-dot dot1"></div>
+      <div class="floating-dot dot2"></div>
+      <div class="floating-dot dot3"></div>
     </div>
+    
+    <div class="container header-inner">
+      <div class="header-content">
+        <h1 class="site-title"></h1>
+        <p class="header-subtitle">Master's Student | Future Game Developer</p>
+      </div>
+      <nav class="navbar" aria-label="Main navigation">
+        <ul class="navbar-menu">
+          <li class="navbar-item"><a class="navbar-link" href="#about">ℹ️ About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#skills">⚙️ Skills</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#projects">📁 Projects</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#cv">📋 CV</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#contact">✉️ Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- JavaScript-funktiot -->
-    <script>
-        function annaSatunnainenAktiviteetti() {
-            var aktiviteetit = [
-                "Lähde kävelylle ja kuuntele podcastia 🎧",
-                "Kokeile uutta reseptiä 🍰",
-                "Katso elokuva, jota et ole ennen nähnyt 🎬",
-                "Piirrä tai maalaa jotain 🎨",
-                "Soita ystävälle ja juttele kuulumiset ☎️",
-                "Lähde kirjastoon tai kahvilaan lukemaan kirjaa 📖",
-                "Kokeile meditaatiota tai rentoutusharjoitusta 🧘",
-                "Kirjoita päiväkirjaa tai suunnittele viikkoasi ✍️",
-                "Tee pieni kotitreeni 🏋️",
-                "Tutustu uuteen musiikkiin tai soittolistaan 🎶"
-            ];
+  <!-- Main content sections -->
+  <main class="container">
+    
+    <!-- About section -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>Welcome to my portfolio. I'm Ruusu Aavikko and I'm a master's degree student in Computer Science. 
+        I have a strong passion for game development and web technologies, and I enjoy creating interactive and engaging experiences.
+        Here, you'll find a selection of my projects that showcase my skills and interests in these areas.
+      </p>
+    </section>
 
-            var satunnainen = aktiviteetit[Math.floor(Math.random() * aktiviteetit.length)];
-            document.getElementById("random-activity").innerText = satunnainen;
+    <!-- Skills section -->
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <!-- Skill boxes -->
+        <div class="skill-box">
+          <span class="skill-icon">🎮</span>
+          <h3>C#</h3>
+          <p>Game development with Unity</p>
+        </div>
+        <div class="skill-box">
+          <span class="skill-icon">🌐</span>
+          <h3>JavaScript</h3>
+          <p>Web development & interactivity</p>
+        </div>
+        <div class="skill-box">
+          <span class="skill-icon">🎨</span>
+          <h3>Figma</h3>
+          <p>UI/UX design & prototyping</p>
+        </div>
+        <div class="skill-box">
+          <span class="skill-icon">🗄️</span>
+          <h3>SQL</h3>
+          <p>Database design & queries</p>
+        </div>
+        <div class="skill-box">
+          <span class="skill-icon">🐍</span>
+          <h3>Python</h3>
+          <p>Data & backend scripting</p>
+        </div>
+        <div class="skill-box">
+          <span class="skill-icon">📱</span>
+          <h3>HTML & CSS</h3>
+          <p>Web design & styling</p>
+        </div>
+        <div class="skill-box">
+          <span class="skill-icon">☕</span>
+          <h3>Java</h3>
+          <p>Object-oriented programming</p>
+        </div>
+        <div class="skill-box">
+          <span class="skill-icon">🐙</span>
+          <h3>GitHub</h3>
+          <p>Version control & collaboration</p>
+        </div>
+        <div class="skill-box">
+          <span class="skill-icon">🖼️</span>
+          <h3>Canva</h3>
+          <p>Graphic design & content creation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <ul class="projects-list">
+        <!-- Project items -->
+        <li class="project-item">
+          <img src="pictures\stardustPic.png" alt="Project 1 screenshot" class="project-image">
+          <div class="project-content">
+            <strong>Stardust</strong>
+            <p>A Unity 2D combat sandbox featuring melee and projectile attacks, equipping/pickups, simple aiming, and damage handling.</p>
+            <!-- GitHub link for this project -->
+            <p><a class="project-link" href="https://github.com/8TonZa8/IGDT_2D" target="_blank" rel="noopener noreferrer">🔗 View on GitHub</a></p>
+            <button class="view-details">View Details</button>
+            <div class="project-details" style="display:none;">
+              <p><strong>Tech Stack:</strong> C#, Unity Engine</p>
+              <p><strong>Challenges:</strong> Balancing combat mechanics, optimizing performance for smooth gameplay.</p>
+            </div>
+          </div>
+        </li>
+        <li class="project-item">
+          <img src="pictures\oppimispeliPicture.png" alt="Oppimispeli screenshot" class="project-image">
+          <div class="project-content">
+            <strong>Oppimispeli</strong>
+            <p>Oppimispeli is a web-based learning game / practice system designed to provide learners with an interactive platform for studying and training.</p>
+            <!-- GitHub link for this project - replace URL with the real repo -->
+            <p><a class="project-link" href="https://github.com/Rosel1a/Oppimispeli" target="_blank" rel="noopener noreferrer">🔗 View on GitHub</a></p>
+            <button class="view-details">View Details</button>
+            <div class="project-details" style="display:none;">
+              <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, MySQL</p>
+              <p><strong>Challenges:</strong> Creating engaging interactive learning modules and ensuring cross-browser compatibility.</p>
+            </div>
+          </div>
+        </li>
+        <li class="project-item">
+          <img src="pictures\fiilisfundiPic.png" alt="Project 3 screenshot" class="project-image">
+          <div class="project-content">
+            <strong>Mitä tekisin nyt?</strong>
+            <p>A simple personal website built with HTML and CSS to share fun ideas and practice web development, hosted on GitHub Pages.</p>
+            <p><a class="project-link" href="https://github.com/Rosel1a/Rosel1a.github.io" target="_blank" rel="noopener noreferrer">🔗 View on GitHub</a></p>
+            <button class="view-details">View Details</button>
+            <div class="project-details" style="display:none;">
+              <p><strong>Tech Stack:</strong> HTML, CSS</p>
+              <p><strong>Challenges:</strong> Designing a clean, responsive layout and deploying to GitHub Pages.</p>
+            </div>
+          </div>
+        </li>
+        <li class="project-item">
+          <img src="pictures\dataAnalysisPic.png" alt="Project 4 screenshot" class="project-image">
+          <div class="project-content">
+            <strong>Data Analysis Project</strong>
+            <p>This project analyzes Finnish household time-use survey data to uncover how people spend their daily time, 
+              how activities differ between groups, and which activities are related to each other using statistical methods.</p>
+            <p><a class="project-link" href="https://github.com/Rosel1a/Data-Analysis-Project" target="_blank" rel="noopener noreferrer">🔗 View on GitHub</a></p>
+            <button class="view-details">View Details</button>
+            <div class="project-details" style="display:none;">
+              <p><strong>Tech Stack:</strong> Python, Pandas, Matplotlib, Jupyter Notebook</p>
+              <p><strong>Challenges:</strong> Cleaning large datasets, performing statistical analysis, and visualizing insights effectively.</p>
+            </div>
+          </div>
+        </li>
+        <li class="project-item">
+          <img src="" alt="Project 5 screenshot" class="project-image">
+          <div class="project-content">
+            <strong>Music playing app</strong>
+            <p>Spotify but better - in development</p>
+            <p><a class="project-link" href="https://github.com/yourusername/project-3" target="_blank" rel="noopener noreferrer">🔗 View on GitHub</a></p>
+            <button class="view-details">View Details</button>
+            <div class="project-details" style="display:none;">
+              <p><strong>Tech Stack:</strong> In development (planned: React, Node.js)</p>
+              <p><strong>Challenges:</strong> Designing an intuitive music streaming interface and integrating audio playback features.</p>
+            </div>
+          </div>
+        </li>
+        <li class="project-item">
+          <img src="" alt="Project 6 screenshot" class="project-image">
+          <div class="project-content">
+            <strong>Household chores manager</strong>
+            <p>App for sharing chores among roommates - in development</p>
+            <p><a class="project-link" href="https://github.com/yourusername/project-3" target="_blank" rel="noopener noreferrer">🔗 View on GitHub</a></p>
+            <button class="view-details">View Details</button>
+            <div class="project-details" style="display:none;">
+              <p><strong>Tech Stack:</strong> In development (planned: React, Firebase)</p>
+              <p><strong>Challenges:</strong> Creating a fair chore assignment system and ensuring real-time updates for multiple users.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CV section -->
+    <section id="cv" class="section">
+      <h2>CV</h2>
+      <p>You can download my CV <a href="RuusuAavikko_CV_2025_Eng.pdf" download>here (PDF)</a>.</p>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:ruusu.aavikko@gmail.com">ruusu.aavikko@gmail.com</a></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Ruusu Aavikko — All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Update footer year dynamically
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typing effect for the header title
+    const title = document.querySelector('.site-title');
+    const text = 'Ruusu Aavikko';
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        title.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150);
+      }
+    }
+    setTimeout(typeWriter, 500); // Delay start for better UX
+
+    // Toggle project details visibility
+    document.querySelectorAll('.view-details').forEach(button => {
+      button.addEventListener('click', () => {
+        const details = button.nextElementSibling;
+        if (details.style.display === 'none' || details.style.display === '') {
+          details.style.display = 'block';
+          button.textContent = 'Hide Details';
+        } else {
+          details.style.display = 'none';
+          button.textContent = 'View Details';
         }
-    </script>
-
+      });
+    });
+  </script>
 </body>
 </html>
+
