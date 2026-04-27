@@ -4,7 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ruusu Aavikko — Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header with animated background and navigation -->
@@ -16,12 +19,16 @@
       <div class="floating-dot dot1"></div>
       <div class="floating-dot dot2"></div>
       <div class="floating-dot dot3"></div>
+      <div class="parallax-layer" data-speed="0.5">
+        <div class="parallax-shape shape-1"></div>
+        <div class="parallax-shape shape-2"></div>
+      </div>
     </div>
     
     <div class="container header-inner">
       <div class="header-content">
-        <h1 class="site-title"></h1>
-        <p class="header-subtitle">Master's Student | Future Game Developer</p>
+        <h1 class="site-title glitch" data-text="RUUSU AAVIKKO"></h1>
+        <p class="header-subtitle">Master's Student | Future Software Developer</p>
       </div>
       <nav class="navbar" aria-label="Main navigation">
         <ul class="navbar-menu">
@@ -33,6 +40,7 @@
         </ul>
       </nav>
     </div>
+    <div class="scroll-indicator"></div>
   </header>
 
   <!-- Main content sections -->
@@ -42,7 +50,7 @@
     <section id="about" class="section">
       <h2>About Me</h2>
       <p>Welcome to my portfolio. I'm Ruusu Aavikko and I'm a master's degree student in Computer Science. 
-        I have a strong passion for game development and web technologies, and I enjoy creating interactive and engaging experiences.
+        I have a strong passion for software development and web technologies, and I enjoy creating interactive and engaging experiences.
         Here, you'll find a selection of my projects that showcase my skills and interests in these areas.
       </p>
     </section>
@@ -108,10 +116,21 @@
     <!-- Projects section -->
     <section id="projects" class="section">
       <h2>Projects</h2>
+      
+      <!-- Project filters -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="games">🎮 Games</button>
+        <button class="filter-btn" data-filter="web">🌐 Web</button>
+        <button class="filter-btn" data-filter="data">📊 Data</button>
+        <button class="filter-btn" data-filter="hardware">⚡ Hardware</button>
+        <button class="filter-btn" data-filter="dev">🚧 In Development</button>
+      </div>
+      
       <ul class="projects-list">
         <!-- Project items -->
-        <li class="project-item">
-          <img src="pictures\stardustPic.png" alt="Project 1 screenshot" class="project-image">
+        <li class="project-item" data-category="games">
+          <img src="pictures/stardustPic.png" alt="Project 1 screenshot" class="project-image">
           <div class="project-content">
             <strong>Stardust</strong>
             <p>A Unity 2D combat sandbox featuring melee and projectile attacks, equipping/pickups, simple aiming, and damage handling.</p>
@@ -124,8 +143,8 @@
             </div>
           </div>
         </li>
-        <li class="project-item">
-          <img src="pictures\oppimispeliPicture.png" alt="Oppimispeli screenshot" class="project-image">
+        <li class="project-item" data-category="web">
+          <img src="pictures/oppimispeliPicture.png" alt="Oppimispeli screenshot" class="project-image">
           <div class="project-content">
             <strong>Oppimispeli</strong>
             <p>Oppimispeli is a web-based learning game / practice system designed to provide learners with an interactive platform for studying and training.</p>
@@ -137,20 +156,20 @@
             </div>
           </div>
         </li>
-        <li class="project-item">
-          <img src="pictures\arduino project.png" alt="Arduino screenshot" class="project-image">
+        <li class="project-item" data-category="hardware">
+          <img src="pictures/arduino project.png" alt="Arduino screenshot" class="project-image">
           <div class="project-content">
             <strong>Arduino Reaction Game</strong>
             <p>Built an Arduino-based reaction game using C/C++, featuring I2C LCD output, button input with debouncing, reaction-time measurement, and servo motor feedback.</p>
             <button class="view-details">View Details</button>
             <div class="project-details" style="display:none;">
-              <p><strong>Tech Stack:</strong> Arduino Nano, C/C++, Arduino IDE, I2C, LCD, Servo, WokwiL</p>
+              <p><strong>Tech Stack:</strong> Arduino Nano, C/C++, Arduino IDE, I2C, LCD, Servo, Wokwi</p>
               <p><strong>Challenges:</strong> Debugging both hardware connections and embedded software logic</p>
             </div>
           </div>
         </li>
-        <li class="project-item">
-          <img src="pictures\fiilisfundiPic.png" alt="Project 3 screenshot" class="project-image">
+        <li class="project-item" data-category="web">
+          <img src="pictures/fiilisfundiPic.png" alt="Project 3 screenshot" class="project-image">
           <div class="project-content">
             <strong>Mitä tekisin nyt?</strong>
             <p>A simple personal website built with HTML and CSS to share fun ideas and practice web development, hosted on GitHub Pages.</p>
@@ -162,8 +181,8 @@
             </div>
           </div>
         </li>
-        <li class="project-item">
-          <img src="pictures\dataAnalysisPic.png" alt="Project 4 screenshot" class="project-image">
+        <li class="project-item" data-category="data">
+          <img src="pictures/dataAnalysisPic.png" alt="Project 4 screenshot" class="project-image">
           <div class="project-content">
             <strong>Data Analysis Project</strong>
             <p>This project analyzes Finnish household time-use survey data to uncover how people spend their daily time, 
@@ -176,7 +195,7 @@
             </div>
           </div>
         </li>
-        <li class="project-item">
+        <li class="project-item" data-category="dev">
           <img src="" alt="Project 5 screenshot" class="project-image">
           <div class="project-content">
             <strong>Music playing app</strong>
@@ -189,7 +208,7 @@
             </div>
           </div>
         </li>
-        <li class="project-item">
+        <li class="project-item" data-category="dev">
           <img src="" alt="Project 6 screenshot" class="project-image">
           <div class="project-content">
             <strong>Household chores manager</strong>
@@ -208,7 +227,7 @@
     <!-- CV section -->
     <section id="cv" class="section">
       <h2>CV</h2>
-      <p>You can download my CV <a href="RuusuAavikko_CV_2025_Eng.pdf" download>here (PDF)</a>.</p>
+      <p>You can download my CV <a href="Ruusu_Aavikko_CV_Eng.pdf" download>here (PDF)</a>.</p>
     </section>
 
     <!-- Contact section -->
@@ -232,16 +251,17 @@
 
     // Typing effect for the header title
     const title = document.querySelector('.site-title');
-    const text = 'Ruusu Aavikko';
+    const text = 'RUUSU AAVIKKO';
+    title.textContent = '';
     let i = 0;
     function typeWriter() {
       if (i < text.length) {
         title.textContent += text.charAt(i);
         i++;
-        setTimeout(typeWriter, 150);
+        setTimeout(typeWriter, 100);
       }
     }
-    setTimeout(typeWriter, 500); // Delay start for better UX
+    setTimeout(typeWriter, 500);
 
     // Toggle project details visibility
     document.querySelectorAll('.view-details').forEach(button => {
@@ -256,7 +276,83 @@
         }
       });
     });
+
+    // Scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Parallax effect
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxLayers = document.querySelectorAll('.parallax-layer');
+      
+      parallaxLayers.forEach(layer => {
+        const speed = layer.dataset.speed || 0.5;
+        layer.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Project filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+
+        const filterValue = button.dataset.filter;
+
+        // Filter projects
+        projectItems.forEach((project, index) => {
+          const category = project.dataset.category;
+          
+          if (filterValue === 'all' || category === filterValue) {
+            // Show project with staggered animation
+            setTimeout(() => {
+              project.classList.remove('hidden');
+              project.style.animation = 'none';
+              setTimeout(() => {
+                project.style.animation = 'fadeInProject 0.5s ease forwards';
+              }, 10);
+            }, index * 50);
+          } else {
+            // Hide project
+            project.classList.add('hidden');
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
-
